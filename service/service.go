@@ -216,6 +216,8 @@ func newPacketHandler(proxyMode string, proxyPSK []byte, maxPacketSize int) (pac
 		return packet.NewZeroOverheadHandler(proxyPSK, maxPacketSize)
 	case "paranoid":
 		return packet.NewParanoidHandler(proxyPSK, maxPacketSize)
+	case "light":
+		return packet.NewLightHandler(proxyPSK, maxPacketSize)
 	default:
 		return nil, fmt.Errorf("unknown proxy mode: %s", proxyMode)
 	}
